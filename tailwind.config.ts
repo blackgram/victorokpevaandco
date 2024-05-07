@@ -8,10 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'main': ['Roboto', "Helvetica Neue", 'sans-serif']
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        "primary": "#403F96",
+        "secondary": "#00AFF1",
+        "ash": "#777777",
+        "dark": "#222222",
       },
     },
   },
