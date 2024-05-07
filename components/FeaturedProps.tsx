@@ -16,7 +16,7 @@ const FeaturedProps = () => {
       <div className="w-full text-center">
         <div className="text-[25px] font-bold ">Featured Properties</div>
         <div className="text-sm text-ash ">
-          Here's our top prime properties in the nigerian market
+          Here&apos;s our top prime properties in the nigerian market
         </div>
       </div>
       <div className="pt-12 class flex flex-col lg:flex-row justify-center items-center gap-8">

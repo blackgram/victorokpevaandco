@@ -10,7 +10,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import Footer from '../components/Footer'
 
-const page = () => {
+const Page = () => {
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -33,4 +33,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
