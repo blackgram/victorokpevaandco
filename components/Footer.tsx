@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="bg-dark px-6 py-12 text-sm text-ash flex flex-col">
       <div className="flex flex-col md:flex-row md:flex-wrap items-start justify-center md:justify-normal lg:justify-evenly md:gap-0 gap-8 text-center md:text-left">
-        <div className="md:w-[50%] lg:w-auto md:p-8 lg:p-2 lg:max-w-[300px]">
+        <div className="w-full md:w-[50%] lg:w-auto md:p-8 lg:p-2 lg:max-w-[300px]">
           <div className="text-white text-[16px] font-bold mb-4">
             Quick Links
           </div>

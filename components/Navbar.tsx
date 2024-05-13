@@ -6,18 +6,89 @@ import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosSearch } from "react-icons/io";
 
-import type { RootState } from "@/Redux/store";
-import { UseDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "@/Redux/store";
+import { useDispatch, useSelector } from "react-redux";
 import { setIsSmallScreen } from "@/Redux/features/screenSizeSlice";
 import Link from "next/link";
 import { MdClose } from "react-icons/md";
+import { useRouter } from "next/navigation";
+import { setActiveMenu } from "@/Redux/features/activeMenuSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
+
   const isSmallScreen = useSelector(
     (state: RootState) => state.data.screenSize.isSmallScreen
   );
 
+  const activeMenu = useSelector(
+    (state: RootState) => state.data.activeMenu.activeMenu
+  );
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (title: string) => {
+    setActiveDropdown(activeDropdown === title ? null : title)
+  }
+
+  const handleMenu = (element: string) => {
+    dispatch(setActiveMenu(element));
+    router.push("/");
+  };
+
+  const menuItems = [
+    {
+      id: 1,
+      title: "HOME",
+      active: activeMenu === "HOME",
+      onclick: () => handleMenu("HOME"),
+    },
+    {
+      id: 2,
+      title: "PROPERTIES",
+      active: activeMenu === "PROPERTIES",
+      onclick: () => handleMenu("PROPERTIES"),
+      sublinks: [
+        { id: 1, title: "FOR SALE" },
+        { id: 2, title: "TO LET" },
+      ],
+    },
+    {
+      id: 3,
+      title: "SERVICES",
+      active: activeMenu === "SERVICES",
+      onclick: () => handleMenu("SERVICES"),
+      sublinks: [
+        { id: 1, title: "PROPERTY/ASSET VALUATION" },
+        { id: 2, title: "PROPERTY AGENCY" },
+        { id: 3, title: "PROPERTY/FACILITY MANAGEMENT" },
+        { id: 4, title: "PROJECT MANAGEMENT" },
+        { id: 5, title: "GENERAL REAL ESTATE CONSULTANCY" },
+        { id: 6, title: "VALUATION REPORT AUTHENTICATION" },
+      ],
+    },
+    {
+      id: 4,
+      title: "ABOUT US",
+      active: activeMenu === "ABOUT US",
+      onclick: () => handleMenu("ABOUT US"),
+      sublinks: [
+        { id: 1, title: "CORPORATE PROFILE" },
+        { id: 2, title: "OUR TEAM" },
+        { id: 3, title: "OUR VISION" },
+      ],
+    },
+    {
+      id: 5,
+      title: "CONTACT US",
+      active: activeMenu === "CONTACT US",
+      onclick: () => handleMenu("CONTACT US"),
+    },
+  ];
 
   return (
     <>
@@ -47,17 +118,27 @@ const Navbar = () => {
                   : " h-0 hidden "
               } `}
             >
-              <Link href="/" className="text-primary">
-                HOME
-              </Link>
-              <Link href="/">PROPERTIES</Link>
-              <Link href="/">SERVICES</Link>
-              <Link href="/">VALUATION AUTHENTICATION</Link>
-              <Link href="/">ABOUT US</Link>
-              <Link href="/">CONTACT US</Link>
-              <div className="text-sm xl:text-lg">
-                <IoIosSearch />
-              </div>
+              {menuItems.map((item, i) => (
+                <div
+                key={i}
+                  onClick={ () => {
+                    item.onclick,
+                    toggleDropdown(item.title)
+                  }}
+                  className={`cursor-pointer transition-transform ease-in-out duration-500 origin-top ${
+                    item.active ? "text-primary border-primary border-t-1 border-b-1" : ""
+                  } hover:text-secondary`}
+                >
+                  <div>{item.title}</div>
+                  {item.sublinks && activeDropdown === item.title && (
+                    <ul className="transition-transform ease-in-out duration-500 origin-top w-max flex flex-col rounded-sm">
+                      {item.sublinks.map((sublink, j) => (
+                        <li key={j} className='text-black text-xs p-2 border-b'>{sublink.title}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -78,19 +159,28 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="flex justify-center items-center text-xs xl:text-[16px] xl:font-semibold font-bold gap-4">
-              <Link href="/" className="text-primary">
-                HOME
-              </Link>
-              <Link href="/">PROPERTIES</Link>
-              <Link href="/">SERVICES</Link>
-              <Link href="/">ABOUT US</Link>
-              {/* <Link href='/'>VALUATION AUTHENTICATION</Link> */}
-              <Link href="/">CONTACT US</Link>
-              <div className="text-sm xl:text-lg">
-                <IoIosSearch />
-              </div>
-            </div>
+            <ul className="flex justify-center items-center text-xs xl:text-[16px] xl:font-semibold font-bold gap-4">
+              {menuItems.map((item, i) => (
+                <li
+                key={i}
+                  onClick={item.onclick}
+                  className={`relative cursor-pointer ${
+                    item.active ? "text-primary cusShadow" : ""
+                  } hover:text-secondary`}
+                  onMouseEnter={() => toggleDropdown(item.title)}
+                  onMouseLeave={() => toggleDropdown(item.title)}
+                >
+                  <div>{item.title}</div>
+                  {item.sublinks && activeDropdown === item.title && (
+                    <ul className="navdropdown absolute  bg-[#f9f9ff] w-max flex flex-col rounded-sm">
+                      {item.sublinks.map((sublink, j) => (
+                        <li key={j}>{sublink.title}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       )}
