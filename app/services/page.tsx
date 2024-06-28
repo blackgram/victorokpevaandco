@@ -10,7 +10,7 @@ import Feasibility from '../../assets/Feasibility-and-Viability-Studies.jpg'
 import ProMan from '../../assets/Project-Management.jpg'
 import Agency from '../../assets/Property-Agency.jpg'
 import PropDev from '../../assets/Property-Development.jpg'
-import {useRouter } from "next/navigation";
+import {useRouter } from "next/router";
 
 const page = () => {
 
