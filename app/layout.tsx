@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Providers } from "@/Redux/provider";
+import Navbar from "@/components/Navbar";
 
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-main">
         <Providers>
+          <Navbar />
           {children}
         </Providers>
       </body>

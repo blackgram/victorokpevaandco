@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/voclogo.png";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -13,6 +13,9 @@ import Link from "next/link";
 import { MdClose } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import { setActiveMenu } from "@/Redux/features/activeMenuSlice";
+
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Navbar = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -36,7 +39,6 @@ const Navbar = () => {
   };
 
   const handleMenu = (element: string) => {
-
     dispatch(setActiveMenu(element));
     router.push(`/${element}`);
   };
@@ -45,7 +47,7 @@ const Navbar = () => {
     {
       id: 1,
       title: "HOME",
-      active: activeMenu === ("/" || "" || 'home'),
+      active: activeMenu === ("/" || "" || "home"),
       onclick: () => handleMenu("/"),
     },
     {
@@ -115,9 +117,16 @@ const Navbar = () => {
     },
   ];
 
+  let screenLocal;
+
+  useEffect(() => {
+    screenLocal = window.localStorage.getItem("isSmallScreen");
+    
+  }, []);
+
   return (
     <>
-      {isSmallScreen ? (
+      {isSmallScreen && screenLocal ? (
         <div className=" transition-all duration-1000 ease-in-out">
           <div className=" fixed z-50 bg-white w-full flex justify-between h-16 px-4">
             <div
