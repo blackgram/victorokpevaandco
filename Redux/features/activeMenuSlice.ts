@@ -7,7 +7,7 @@ export interface activeMenu {
 }
 
 const initialState: activeMenu = {
-    activeMenu: "HOME"
+    activeMenu: "home"
 }
 
 export const activeMenuSlice = createSlice({
