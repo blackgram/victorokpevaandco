@@ -12,10 +12,10 @@ import PropDev from '../../assets/Property-Development.jpg'
 import {useRouter } from "next/navigation";
 import { Suspense } from "react";
 import InnerPagesLayout from "@/components/InnerPagesLayout";
+import Link from "next/link";
 
 const page = () => {
 
-  const router = useRouter();
 
   return (
     <InnerPagesLayout title='Our Services'>
@@ -25,7 +25,7 @@ const page = () => {
         <div className="w-full flex flex-col items-center justify-center py-12 xl:py-18 px-6 xl:px-24">
           <div className="text-[38px] font-bold text-center xl:text-left ">Our services include:</div>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 py-12 xl:py-24">
-            <div onClick={() => router.push('/services/property-valuation')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            <Link href='/services/property-valuation' className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full  rounded-lg">
                 <Image
                   src={PAVal}
@@ -43,8 +43,8 @@ const page = () => {
                 </div>
                 <div>Click to learn more{">>"}</div>
               </div>
-            </div>
-            <div onClick={() => router.push('/services/property-agency')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            </Link>
+            <Link href='/services/property-agency' className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={Agency}
@@ -60,8 +60,8 @@ const page = () => {
                 </div>
                 <div>Click to learn more{">>"}</div>
               </div>
-            </div>
-            <div onClick={() => router.push('/services/property-development')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            </Link>
+            <Link href='/services/property-development' className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={PropDev}
@@ -79,8 +79,8 @@ const page = () => {
                 </div>
                 <div>Click to learn more{">>"}</div>
               </div>
-            </div>
-            <div onClick={() => router.push('/services/facility-management')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            </Link>
+            <Link href='/services/facility-management'  className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={FaMan}
@@ -98,8 +98,8 @@ const page = () => {
                 </div>
                 <div>Click to learn more{">>"}</div>
               </div>
-            </div>
-            <div onClick={() => router.push('/services/project-management')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            </Link>
+            <Link href='/services/project-management' className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={ProMan}
@@ -115,8 +115,8 @@ const page = () => {
                 </div>
                 <div>Click to learn more{">>"}</div>
               </div>
-            </div>
-            <div onClick={() => router.push('/services/feasibility-studies')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            </Link>
+            <Link href='/services/feasibility-studies' className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={Feasibility}
@@ -134,7 +134,7 @@ const page = () => {
                 </div>
                 <div>Click to learn more{">>"}</div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
