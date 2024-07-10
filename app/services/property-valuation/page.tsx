@@ -1,12 +1,14 @@
+import InnerPagesLayout from '@/components/InnerPagesLayout'
 import React from 'react'
-import CompLayout from '@/components/CompLayout'
 
 const page = () => {
   return (
     <div>
-      <CompLayout>
-        test
-      </CompLayout>
+      <InnerPagesLayout title='Property & Asset Valuation '>
+        <div>
+          Psge
+        </div>
+      </InnerPagesLayout>
     </div>
   )
 }

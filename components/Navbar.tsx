@@ -21,6 +21,17 @@ const Navbar = () => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
 
+  useEffect(() => {
+    const handleResize = () =>
+      dispatch(setIsSmallScreen(window.innerWidth < 1024));
+    window.innerWidth < 1024
+      ? window.localStorage.setItem("isSmallScreen", JSON.stringify(true))
+      : window.localStorage.setItem("isSmallScreen", JSON.stringify(false));
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const isSmallScreen = useSelector(
     (state: RootState) => state.data.screenSize.isSmallScreen
   );
@@ -121,12 +132,11 @@ const Navbar = () => {
 
   useEffect(() => {
     screenLocal = window.localStorage.getItem("isSmallScreen");
-    
   }, []);
 
   return (
     <>
-      {isSmallScreen && screenLocal ? (
+      {isSmallScreen ? (
         <div className=" transition-all duration-1000 ease-in-out">
           <div className=" fixed z-50 bg-white w-full flex justify-between h-16 px-4">
             <div
@@ -172,7 +182,7 @@ const Navbar = () => {
                     {item.title}
                   </div>
                   {item.sublinks && activeDropdown === item.title && (
-                    <ul className="transition-transform ease-in-out duration-500 origin-top w-max flex flex-col rounded-sm">
+                    <ul className="transition-transform ease-in-out duration-500 origin-top w-max flex flex-col z-50 rounded-sm">
                       {item.sublinks.map((sublink, j) => (
                         <li key={j} className="text-black text-xs p-2 border-b">
                           {sublink.title}

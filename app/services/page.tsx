@@ -11,23 +11,16 @@ import ProMan from '../../assets/Project-Management.jpg'
 import Agency from '../../assets/Property-Agency.jpg'
 import PropDev from '../../assets/Property-Development.jpg'
 import {useRouter } from "next/navigation";
+import InnerPagesLayout from "@/components/InnerPagesLayout";
 
 const Page = () => {
 
   const router = useRouter();
 
   return (
-    <div>
-      <Navbar />
-      <div className="min-h-[100vh] pt-12 lg:pt-18 xl:pt-24 bg-[#f9f9ff]">
-        <div className="w-full bg-cover bg-[url(../assets/services2.jpg)] p-10 md:p-14 ">
-          <div className="flex text-sm lg:text-base">
-            <div>HOME</div>
-            <div> == </div>
-            <div>SERVICES</div>
-          </div>
-          <div className=" text-[24px] xl:text-[48px] ">Services</div>
-        </div>
+    <InnerPagesLayout title='Our Services'>
+
+      <div>
 
         <div className="w-full flex flex-col items-center justify-center py-12 xl:py-18 px-6 xl:px-24">
           <div className="text-[38px] font-bold text-center xl:text-left ">Our services include:</div>
@@ -51,7 +44,7 @@ const Page = () => {
                 <div>Click to learn more{">>"}</div>
               </div>
             </div>
-            <div className=" flex lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            <div onClick={() => router.push('/services/property-agency')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={Agency}
@@ -68,7 +61,7 @@ const Page = () => {
                 <div>Click to learn more{">>"}</div>
               </div>
             </div>
-            <div className=" flex lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            <div onClick={() => router.push('/services/property-development')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={PropDev}
@@ -87,7 +80,7 @@ const Page = () => {
                 <div>Click to learn more{">>"}</div>
               </div>
             </div>
-            <div className=" flex lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            <div onClick={() => router.push('/services/facility-management')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={FaMan}
@@ -106,7 +99,7 @@ const Page = () => {
                 <div>Click to learn more{">>"}</div>
               </div>
             </div>
-            <div className=" flex lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            <div onClick={() => router.push('/services/project-management')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={ProMan}
@@ -123,7 +116,7 @@ const Page = () => {
                 <div>Click to learn more{">>"}</div>
               </div>
             </div>
-            <div className=" flex lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
+            <div onClick={() => router.push('/services/feasibility-studies')} className=" flex flex-col lg:flex-col bg-white cusShadow hover:bg-primary hover:text-white  rounded-lg cursor-pointer transition-all duration-500 ease-in-out">
               <div className="w-full rounded-lg">
                 <Image
                   src={Feasibility}
@@ -146,7 +139,7 @@ const Page = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </InnerPagesLayout>
   );
 };
 

@@ -1,8 +1,9 @@
+import InnerPagesLayout from '@/components/InnerPagesLayout'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <InnerPagesLayout title='About Us'>page</InnerPagesLayout>
   )
 }
 

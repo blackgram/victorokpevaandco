@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { Providers } from "@/Redux/provider";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -24,7 +25,8 @@ export default function RootLayout({
       <body className="font-main">
         <Providers>
           <Navbar />
-          {children}
+          <div className="min-h-[100vh]">{children}</div>
+          <Footer />
         </Providers>
       </body>
     </html>

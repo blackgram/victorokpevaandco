@@ -1,9 +1,9 @@
-import CompLayout from '@/components/CompLayout'
+import InnerPagesLayout from '@/components/InnerPagesLayout'
 import React from 'react'
 
 const page = () => {
   return (
-    <CompLayout>page</CompLayout>
+    <InnerPagesLayout title='Feasibilty & Viability Studies'>page</InnerPagesLayout>
   )
 }
 

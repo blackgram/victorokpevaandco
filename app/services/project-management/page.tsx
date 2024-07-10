@@ -3,9 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <InnerPagesLayout title='Facility Management'>
-        hello
-    </InnerPagesLayout>
+    <InnerPagesLayout title='Project Management'>page</InnerPagesLayout>
   )
 }
 
