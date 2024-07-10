@@ -18,7 +18,7 @@ const Page = () => {
   const router = useRouter();
 
   return (
-    <InnerPagesLayout title='Our Services'>
+    // <InnerPagesLayout title='Our Services'>
 
       <div>
 
@@ -138,8 +138,8 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </InnerPagesLayout>
+      // <Footer />
+    // </InnerPagesLayout>
   );
 };
 
