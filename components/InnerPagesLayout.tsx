@@ -26,8 +26,8 @@ const InnerPagesLayout: React.FC<InnerPagesLayoutProps> = ({title, children}) =>
             <Link href='/' className="hover:text-red-500">HOME</Link>
             <MdOutlineNavigateNext />
             {splitPath.map((path, i) => (
-              <div className="flex items-center justify-center gap-2 hover:text-red-500">
-                <Link href={`/${path}`} key={i}>{path.toUpperCase()}</Link>
+              <div key={i} className="flex items-center justify-center gap-2 hover:text-red-500">
+                <Link href={`/${path}`}>{path.toUpperCase()}</Link>
                 <MdOutlineNavigateNext />
               </div>
             ))}
