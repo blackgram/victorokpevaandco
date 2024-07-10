@@ -2,7 +2,6 @@
 
 import React from "react";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import PAVal from "../../assets/Assets-Valuation.jpg";
 import FaMan from '../../assets/Facility-Management.jpg'
@@ -11,6 +10,7 @@ import ProMan from '../../assets/Project-Management.jpg'
 import Agency from '../../assets/Property-Agency.jpg'
 import PropDev from '../../assets/Property-Development.jpg'
 import {useRouter } from "next/navigation";
+import { Suspense } from "react";
 import InnerPagesLayout from "@/components/InnerPagesLayout";
 
 const Page = () => {
