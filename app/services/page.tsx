@@ -13,12 +13,12 @@ import {useRouter } from "next/navigation";
 import { Suspense } from "react";
 import InnerPagesLayout from "@/components/InnerPagesLayout";
 
-const Page = () => {
+const page = () => {
 
   const router = useRouter();
 
   return (
-    // <InnerPagesLayout title='Our Services'>
+    <InnerPagesLayout title='Our Services'>
 
       <div>
 
@@ -138,9 +138,9 @@ const Page = () => {
           </div>
         </div>
       </div>
-      // <Footer />
-    // </InnerPagesLayout>
+      <Footer />
+    </InnerPagesLayout>
   );
 };
 
-export default Page;
+export default page;
